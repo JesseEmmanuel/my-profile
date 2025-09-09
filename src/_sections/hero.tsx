@@ -15,6 +15,8 @@ import { Dock, DockIcon } from "../components/magicui/dock";
 import { IconCloud } from "../components/magicui/icon-cloud";
 import { Particles } from "../components/magicui/particles";
 import { useState } from "react";
+import { Meteors } from "../components/magicui/meteors";
+import { SiReaddotcv } from "react-icons/si";
 
 export type IconProps = React.HTMLAttributes<SVGElement>;
 
@@ -49,6 +51,7 @@ const slugs = [
 const Icons = {
   calendar: (props: IconProps) => <CalendarIcon {...props} />,
   email: (props: IconProps) => <MailIcon {...props} />,
+  resume: (props: IconProps) => <SiReaddotcv {...props} />,
   linkedin: (props: IconProps) => (
     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" {...props}>
       <title>LinkedIn</title>
@@ -95,18 +98,18 @@ const DATA = {
     social: {
       GitHub: {
         name: "GitHub",
-        url: "#",
+        url: "https://github.com/JesseEmmanuel",
         icon: Icons.github,
       },
       LinkedIn: {
         name: "LinkedIn",
-        url: "#",
+        url: "https://www.linkedin.com/in/jesse-emmanuel-basco-450a95194/",
         icon: Icons.linkedin,
       },
-      Email: {
-        name: "Send Email",
-        url: "#",
-        icon: Icons.email,
+      Resume: {
+        name: "Download Resume",
+        url: "../assets/JesseEmmanuelBasco_Resume.pdf",
+        icon: Icons.resume,
       },
     },
   },
@@ -125,7 +128,7 @@ export default function Hero() {
 
 
   return (
-    <div className="flex flex-col items-center justify-center">
+    <div className="flex flex-col items-center justify-center py-20">
       <Particles
         className="absolute inset-0 z-0"
         quantity={100}
@@ -133,6 +136,9 @@ export default function Hero() {
         color={setDark ? '#FFFFFF' : '#000000'}
         refresh
       />
+      {setDark &&
+      <Meteors number={30} />
+      }
       <div className="max-w-[1000px] w-full h-screen mx-auto items-center text-center flex flex-col justify-center sm:pt-4 hero-section">
         <IconCloud images={images} />
         <p className="text-[#00df9a] font-bold p-2">SOFTWARE DEVELOPER</p>

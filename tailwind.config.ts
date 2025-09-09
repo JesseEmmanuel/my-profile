@@ -58,7 +58,8 @@ const config = {
     		},
     		animation: {
     			shine: 'shine var(--duration) infinite linear',
-    			'background-position-spin': 'background-position-spin 3000ms infinite alternate'
+    			'background-position-spin': 'background-position-spin 3000ms infinite alternate',
+    			meteor: 'meteor 5s linear infinite'
     		},
     		keyframes: {
     			shine: {
@@ -78,6 +79,19 @@ const config = {
     				},
     				'100%': {
     					backgroundPosition: 'bottom center'
+    				}
+    			},
+    			meteor: {
+    				'0%': {
+    					transform: 'rotate(var(--angle)) translateX(0)',
+    					opacity: '1'
+    				},
+    				'70%': {
+    					opacity: '1'
+    				},
+    				'100%': {
+    					transform: 'rotate(var(--angle)) translateX(-500px)',
+    					opacity: '0'
     				}
     			}
     		}
