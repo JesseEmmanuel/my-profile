@@ -111,6 +111,21 @@ export function ArcTimeline(props: ArcTimelineProps) {
     }
   }
 
+  const getCurrentTimelineItem = () => {
+    let count = 0
+    for (let i = 0; i < data.length; i++) {
+      const startIndex = count
+      const endIndex = count + data[i].steps.length - 1
+      if (currentGlobalStepIndex >= startIndex && currentGlobalStepIndex <= endIndex) {
+        return data[i]
+      }
+      count += data[i].steps.length
+    }
+    return data[0]
+  }
+
+  const currentTimelineItem = getCurrentTimelineItem()
+
   return (
     <div {...restProps} className={cn("relative h-[380px] w-full overflow-hidden", className)}>
       <div className="absolute top-4 left-1/2 -translate-x-1/2 z-20 flex items-center gap-4">
@@ -181,6 +196,12 @@ export function ArcTimeline(props: ArcTimelineProps) {
         </button>
       </div>
 
+      <div className="absolute top-16 left-1/2 -translate-x-1/2 z-30 whitespace-nowrap text-center">
+        <div className="text-[var(--time-active-color,#555555)] dark:text-[var(--time-active-color,#d4d4d4)] font-medium">
+          {currentTimelineItem.time}
+        </div>
+      </div>
+
       <div
         style={{
           transform: `translateX(-50%) rotate(${circleContainerRotateDeg}deg)`,
@@ -245,8 +266,8 @@ export function ArcTimeline(props: ArcTimelineProps) {
                         className={cn(
                           "h-full w-full transition-all duration-200",
                           isActive
-                            ? "bg-[var(--step-line-active-color,#888888)] dark:bg-[var(--step-line-active-color,#9780ff)] group-hover:bg-[var(--step-line-active-color,#666666)] dark:group-hover:bg-[var(--step-line-active-color,#a690ff)]"
-                            : "bg-[var(--step-line-inactive-color,#b1b1b1)] dark:bg-[var(--step-line-inactive-color,#737373)] group-hover:bg-[var(--step-line-inactive-color,#888888)] dark:group-hover:bg-[var(--step-line-inactive-color,#9780ff)]",
+                            ? "bg-[var(--step-line-active-color,#888888)] dark:bg-[#00df9a] group-hover:bg-[var(--step-line-active-color,#666666)] dark:group-hover:bg-[#00df9a]"
+                            : "bg-[var(--step-line-inactive-color,#b1b1b1)] dark:bg-[var(--step-line-inactive-color,#737373)] group-hover:bg-[var(--step-line-inactive-color,#888888)] dark:group-hover:bg-[#00df9a]",
                           "group-hover:shadow-[0_0_10px_rgba(151,128,255,0.5)] dark:group-hover:shadow-[0_0_10px_rgba(151,128,255,0.7)]",
                         )}
                         style={{
@@ -276,18 +297,6 @@ export function ArcTimeline(props: ArcTimelineProps) {
                           {step.content}
                         </p>
                       </div>
-                      {stepIndex === 0 && (
-                        <div
-                          className={cn(
-                            "absolute left-1/2 top-0 z-10 -translate-x-1/2 translate-y-[calc(-100%-24px)] whitespace-nowrap",
-                            isActive
-                              ? "text-[var(--time-active-color,#555555)] dark:text-[var(--time-active-color,#d4d4d4)]"
-                              : "text-[var(--time-inactive-color,#a3a3a3)] dark:text-[var(--time-inactive-color,#a3a3a3)]",
-                          )}
-                        >
-                          {line.time}
-                        </div>
-                      )}
                     </div>
 
                     <PlaceholderLines

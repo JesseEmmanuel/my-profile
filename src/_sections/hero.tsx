@@ -1,13 +1,9 @@
-"use";
+"use client";
 
 import { ReactTyped } from "react-typed";
 import { CalendarIcon, MailIcon } from "lucide-react";
-// import MyAvatar from "../assets/me.json";
-import React from "react";
-// import { ModeToggle } from "../components/mode-toggle";
 import { AnimatedThemeToggler } from "../components/magicui/animated-theme-toggler";
 import { buttonVariants } from "../components/ui/button";
-import { Separator } from "../components/ui/separator";
 import {
   Tooltip,
   TooltipContent,
@@ -16,8 +12,9 @@ import {
 } from "../components/ui/tooltip";
 import { cn } from "../lib/utils";
 import { Dock, DockIcon } from "../components/magicui/dock";
-// import Lottie from "react-lottie";
 import { IconCloud } from "../components/magicui/icon-cloud";
+import { Particles } from "../components/magicui/particles";
+import { useState } from "react";
 
 export type IconProps = React.HTMLAttributes<SVGElement>;
 
@@ -106,7 +103,7 @@ const DATA = {
         url: "#",
         icon: Icons.linkedin,
       },
-      email: {
+      Email: {
         name: "Send Email",
         url: "#",
         icon: Icons.email,
@@ -116,48 +113,31 @@ const DATA = {
 };
 
 export default function Hero() {
+  const [setDark, isSetDark] = useState(false);
+
+  const handleClick = () => {
+    isSetDark(!setDark);
+  };
+
   const images = slugs.map(
     (slug) => `https://cdn.simpleicons.org/${slug}/${slug}`
   );
 
+
   return (
     <div className="flex flex-col items-center justify-center">
-      {/* <Particles
-                className="absolute inset-0 z-0"
-                quantity={100}
-                ease={80}
-                color='#000000'
-                refresh
-            /> */}
-      {/* <InteractiveGridPattern
-                className={cn(
-                    "[mask-image:radial-gradient(400px_circle_at_center,white,transparent)]",
-                )}
-                width={20}
-                height={20}
-                squares={[80, 80]}
-                squaresClassName="hover:fill-[#00df9a]"
-            /> */}
-      {/* <span className="pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black to-gray-300/80 bg-clip-text text-center text-8xl font-semibold leading-none text-transparent dark:from-white dark:to-slate-900/10">
-        Dock
-      </span> */}
-      <div className="max-w-[800px] w-full h-screen mx-auto items-center text-center flex flex-col justify-center sm:pt-4 hero-section">
-        {/* <Lottie
-          options={{
-            loop: true,
-            autoplay: true,
-            animationData: MyAvatar,
-            rendererSettings: {
-              preserveAspectRatio: "xMidYMid slice",
-            },
-          }}
-          width={300}
-          height={300}
-        /> */}
+      <Particles
+        className="absolute inset-0 z-0"
+        quantity={100}
+        ease={80}
+        color={setDark ? '#FFFFFF' : '#000000'}
+        refresh
+      />
+      <div className="max-w-[1000px] w-full h-screen mx-auto items-center text-center flex flex-col justify-center sm:pt-4 hero-section">
         <IconCloud images={images} />
         <p className="text-[#00df9a] font-bold p-2">SOFTWARE DEVELOPER</p>
-        <h1 className="md:text-5xl sm:text-4xl text-4xl text-black font-bold my-2">
-          Hi, I'm Jesse. Nice to meet you :)
+        <h1 className="md:text-5xl sm:text-4xl text-4xl text-black font-bold my-2 dark:text-white">
+          Hi, I'm Jesse. Welcome to my portfolio 👋
         </h1>
         <div>
           <p className="md:text-5xl sm:text-4xl text-xl font-bold py-4 text-[#00df9a]">
@@ -168,37 +148,14 @@ export default function Hero() {
               loop={true}
             />
           </p>
-          <h2 className="text-md mt-3 text-black mx-8">
+          <h2 className="text-md mt-3 text-black mx-8 dark:text-white">
             I am Highly invested in building websites and API-Driven Web Apps
             with JavaScript and PHP language/frameworks. Willing to learn more
             Application Development not limited in Web Applications.
           </h2>
-          {/* <button className='bg-[#00df9a] py-3 px-5 rounded-lg mt-4 text-black text-sm font-bold'>Get Started</button> */}
         </div>
         <TooltipProvider>
-          <Dock direction="middle">
-            {/* {DATA.navbar.map((item) => (
-                            <DockIcon key={item.label}>
-                                <Tooltip>
-                                    <TooltipTrigger asChild>
-                                        <a
-                                            href={item.href}
-                                            aria-label={item.label}
-                                            className={cn(
-                                                buttonVariants({ variant: "ghost", size: "icon" }),
-                                                "size-12 rounded-full",
-                                            )}
-                                        >
-                                            <item.icon className="size-4" />
-                                        </a>
-                                    </TooltipTrigger>
-                                    <TooltipContent>
-                                        <p>{item.label}</p>
-                                    </TooltipContent>
-                                </Tooltip>
-                            </DockIcon>
-                        ))} */}
-            <Separator orientation="vertical" className="h-full" />
+          <Dock direction="middle" className="dark:border-white">
             {Object.entries(DATA.contact.social).map(([name, social]) => (
               <DockIcon key={name}>
                 <Tooltip>
@@ -208,26 +165,27 @@ export default function Hero() {
                       aria-label={social.name}
                       className={cn(
                         buttonVariants({ variant: "ghost", size: "icon" }),
-                        "size-12 rounded-full"
+                        "size-12 rounded-full dark:text-white"
                       )}
                     >
                       <social.icon className="size-4" />
                     </a>
                   </TooltipTrigger>
                   <TooltipContent>
-                    <p>{name}</p>
+                    <p className="dark:text-white">{name}</p>
                   </TooltipContent>
                 </Tooltip>
               </DockIcon>
             ))}
-            <Separator orientation="vertical" className="h-full py-2" />
             <DockIcon>
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <AnimatedThemeToggler className="rounded-full" />
+                  <button onClick={handleClick}>
+                    <AnimatedThemeToggler className="rounded-full" />
+                  </button>
                 </TooltipTrigger>
                 <TooltipContent>
-                  <p>Theme</p>
+                  <p className="dark:text-white">Theme</p>
                 </TooltipContent>
               </Tooltip>
             </DockIcon>

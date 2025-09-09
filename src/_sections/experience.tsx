@@ -17,8 +17,8 @@ import {
 
 export default function Experience() {
   return (
-    <div className="flex flex-col gap-4">
-      <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4 text-center">
+    <div className="flex flex-col gap-4 py-20">
+      <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4 text-center dark:text-white">
         Career Milestones
       </h2>
       <ArcTimeline
@@ -50,10 +50,9 @@ export default function Experience() {
 
 const TIMELINE: ArcTimelineItem[] = [
   {
-    time: "September 2020 - March 2021",
+    time: "Apollo Technologies (September 2020 - March 2021)",
     steps: [
       {
-        // icon: <RocketIcon width={20} height={20} />,
         content:
           "Started working at Apollo Technologies as Junior Systems Engineer",
       },
@@ -72,7 +71,7 @@ const TIMELINE: ArcTimelineItem[] = [
     ],
   },
   {
-    time: "2021 - 2023",
+    time: "Govesmart Solutions & Web Developer Freelance (2021 - 2023)",
     steps: [
       {
         // icon: <RocketIcon width={20} height={20} />,
@@ -103,7 +102,7 @@ const TIMELINE: ArcTimelineItem[] = [
     ],
   },
   {
-    time: "July - September, 2023",
+    time: "Human Incubator Inc. (July - September, 2023)",
     steps: [
       {
         // icon: <RocketIcon width={20} height={20} />,
@@ -123,7 +122,7 @@ const TIMELINE: ArcTimelineItem[] = [
     ],
   },
   {
-    time: "October 2023 - September 2025",
+    time: "Koda Kollectiv (October 2023 - September 2025)",
     steps: [
       {
         // icon: <RocketIcon width={20} height={20} />,
