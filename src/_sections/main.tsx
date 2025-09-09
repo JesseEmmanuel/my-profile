@@ -1,6 +1,7 @@
 'use client'
 
 import { Particles } from "../components/magicui/particles"
+import Experience from "./experience"
 import Hero from "./hero"
 import Skill from "./skill"
 
@@ -16,6 +17,7 @@ export default function Main() {
             />
             <Hero />
             <Skill />
+            <Experience />
         </div>
     )
 }

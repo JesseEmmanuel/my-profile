@@ -92,6 +92,14 @@ body {
   background: #00DF9A;
 }
 
+.scrollbar-mini::-webkit-scrollbar {
+  width: 5px;         /* Chrome, Safari, Opera */
+}
+
+.scrollbar-mini::-webkit-scrollbar-thumb {
+  background: #8B8B8B;
+}
+
 .light {
   position: absolute;
   width: 0px;

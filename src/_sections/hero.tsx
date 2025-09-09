@@ -17,8 +17,6 @@ import {
 import { cn } from "../lib/utils";
 import { Dock, DockIcon } from "../components/magicui/dock";
 import Lottie from 'react-lottie';
-import { Particles } from '../components/magicui/particles';
-import MySelf from '../assets/me-ghibli.png'
 
 
 export type IconProps = React.HTMLAttributes<SVGElement>;
@@ -123,6 +121,7 @@ export default function Hero() {
                         }
                     }}
                     width={300}
+                    height={300}
                 />
                 <p className='text-[#00df9a] font-bold p-2'>SOFTWARE DEVELOPER</p>
                 <h1 className='md:text-5xl sm:text-4xl text-4xl text-black font-bold my-2'>Hi, I'm Jesse. Nice to meet you :)</h1>

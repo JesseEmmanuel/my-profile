@@ -2,14 +2,14 @@
 
 import { motion } from "motion/react";
 import {
-  ComponentPropsWithoutRef,
+  type ComponentPropsWithoutRef,
   useEffect,
   useId,
   useRef,
   useState,
 } from "react";
 
-import { cn } from "@/lib/utils";
+import { cn } from "../../lib/utils";
 
 export interface AnimatedGridPatternProps
   extends ComponentPropsWithoutRef<"svg"> {

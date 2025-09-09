@@ -3,7 +3,7 @@
 import { Moon, SunDim } from "lucide-react";
 import { useState, useRef } from "react";
 import { flushSync } from "react-dom";
-import { cn } from "@/lib/utils";
+import { cn } from "../../lib/utils";
 
 type props = {
   className?: string;
@@ -15,7 +15,7 @@ export const AnimatedThemeToggler = ({ className }: props) => {
   const changeTheme = async () => {
     if (!buttonRef.current) return;
 
-    await document.startViewTransition(() => {
+    await (document as any).startViewTransition(() => {
       flushSync(() => {
         const dark = document.documentElement.classList.toggle("dark");
         setIsDarkMode(dark);

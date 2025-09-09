@@ -1,4 +1,3 @@
-import { Code, Database, Wrench } from "lucide-react"
 import Frontend from '../assets/frontend.json'
 import Backend from '../assets/backend.json'
 import Tools from '../assets/tools.json'
