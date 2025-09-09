@@ -50,7 +50,7 @@ export default function Experience() {
 
 const TIMELINE: ArcTimelineItem[] = [
   {
-    time: "Apollo Technologies (September 2020 - March 2021)",
+    time: "September 2020 - March 2021",
     steps: [
       {
         content:
@@ -71,7 +71,7 @@ const TIMELINE: ArcTimelineItem[] = [
     ],
   },
   {
-    time: "Govesmart Solutions & Web Developer Freelance (2021 - 2023)",
+    time: "2021 - 2023",
     steps: [
       {
         // icon: <RocketIcon width={20} height={20} />,
@@ -102,7 +102,7 @@ const TIMELINE: ArcTimelineItem[] = [
     ],
   },
   {
-    time: "Human Incubator Inc. (July - September, 2023)",
+    time: "July - September, 2023",
     steps: [
       {
         // icon: <RocketIcon width={20} height={20} />,
@@ -122,7 +122,7 @@ const TIMELINE: ArcTimelineItem[] = [
     ],
   },
   {
-    time: "Koda Kollectiv (October 2023 - September 2025)",
+    time: "October 2023 - September 2025",
     steps: [
       {
         // icon: <RocketIcon width={20} height={20} />,
