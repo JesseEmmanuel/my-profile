@@ -1,119 +1,148 @@
-import { Card, CardContent, CardHeader, CardTitle } from "../components/ui/card"
-import { Badge } from "../components/ui/badge"
-import { Calendar, MapPin } from "lucide-react"
+// import { ArcTimeline, ArcTimelineItem } from "@/components/magicui/arc-timeline";
+import {
+  ArcTimeline,
+  type ArcTimelineItem,
+} from "../components/magicui/arc-timeline";
+// import {
+//   RocketIcon,
+//   CubeIcon,
+//   LockClosedIcon,
+//   GlobeIcon,
+//   GearIcon,
+//   LightningBoltIcon,
+//   StarIcon,
+//   MagicWandIcon,
+// } from "@radix-ui/react-icons";
+// import { RocketIcon, } from "lucide-react";
 
 export default function Experience() {
-  const experiences = [
-    {
-      title: "Full Stack Developer",
-      company: "KodaKollectiv",
-      period: "October 2023 - September 2025",
-      location: "On-site",
-      description: [
-        "Built and integrated RESTful APIs using Nest.js, Laravel, and Prisma to support data exchange across applications",
-        "Deployed backend applications on AWS (Elastic Beanstalk + RDS), improving system scalability and reliability",
-        "Collaborated with frontend developers using React/Next.js, ensuring efficient API integration",
-      ],
-      technologies: ["Nest.js", "Laravel", "Prisma", "AWS", "React", "Next.js"],
-    },
-    {
-      title: "WordPress Developer",
-      company: "Human Incubator Inc.",
-      period: "July - September 2023",
-      location: "On-site",
-      description: [
-        "Maintained and enhanced client WordPress sites, fixing performance issues and improving security",
-        "Customized themes and plugins, aligning websites with client branding and business needs",
-      ],
-      technologies: ["WordPress", "PHP", "JavaScript", "CSS"],
-    },
-    {
-      title: "Freelance Web Developer",
-      company: "Self-Employed",
-      period: "2021 - 2022",
-      location: "Remote",
-      description: [
-        "Designed and developed responsive websites for small businesses using WordPress, React, and Laravel",
-        "Implemented custom API integrations, boosting client site functionality and user engagement",
-      ],
-      technologies: ["WordPress", "React", "Laravel", "PHP", "JavaScript"],
-    },
-    {
-      title: "Tech Support/WordPress Developer",
-      company: "Govesmart Solutions Inc",
-      period: "2021 - 2023",
-      location: "On-site",
-      description: [
-        "Developed and maintained WordPress websites, ensuring cross-browser compatibility and responsive design",
-        "Managed social media accounts to increase brand visibility and drive web traffic",
-      ],
-      technologies: ["WordPress", "PHP", "CSS", "JavaScript", "Social Media Management"],
-    },
-    {
-      title: "Junior Systems Engineer",
-      company: "Apollo Technologies Inc.",
-      period: "September 2020 - March 2021",
-      location: "On-site",
-      description: [
-        "Configured and maintained Linux servers with high availability setups, supporting enterprise-level systems",
-        "Implemented MySQL database synchronization and replication, ensuring data consistency and minimizing downtime",
-        "Assisted in troubleshooting and system monitoring, reducing incident response time",
-      ],
-      technologies: ["Linux", "MySQL", "System Administration", "Database Management"],
-    },
-  ]
-
   return (
-    <section id="experience" className="py-20 bg-muted/30">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">Experience</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            My professional journey showcasing the roles and projects that have shaped my expertise.
-          </p>
-        </div>
-
-        <div className="space-y-8 overflow-y-scroll scrollbar-mini h-[800px]">
-          {experiences.map((exp, index) => (
-            <Card key={index} className="hover:shadow-lg transition-shadow duration-300">
-              <CardHeader>
-                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-                  <div>
-                    <CardTitle className="text-xl text-foreground">{exp.title}</CardTitle>
-                    <p className="text-lg font-semibold text-primary">{exp.company}</p>
-                  </div>
-                  <div className="flex flex-col sm:items-end gap-2">
-                    <div className="flex items-center gap-2 text-muted-foreground">
-                      <Calendar className="h-4 w-4" />
-                      <span className="text-sm">{exp.period}</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-muted-foreground">
-                      <MapPin className="h-4 w-4" />
-                      <span className="text-sm">{exp.location}</span>
-                    </div>
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-2 mb-6">
-                  {exp.description.map((item, i) => (
-                    <li key={i} className="text-muted-foreground leading-relaxed">
-                      • {item}
-                    </li>
-                  ))}
-                </ul>
-                <div className="flex flex-wrap gap-2">
-                  {exp.technologies.map((tech, i) => (
-                    <Badge key={i} variant="secondary" className="text-xs">
-                      {tech}
-                    </Badge>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </div>
-    </section>
-  )
+    <div className="flex flex-col gap-4">
+      <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4 text-center">
+        Career Milestones
+      </h2>
+      <ArcTimeline
+        // className={cn(
+        //   "[--step-line-active-color:#888888] dark:[--step-line-active-color:#9780ff]",
+        //   "[--step-line-inactive-color:#b1b1b1] dark:[--step-line-inactive-color:#737373]",
+        //   "[--placeholder-line-color:#a1a1a1] dark:[--placeholder-line-color:#737373]",
+        //   "[--icon-active-color:#555555] dark:[--icon-active-color:#d4d4d4]",
+        //   "[--icon-inactive-color:#a3a3a3] dark:[--icon-inactive-color:#a3a3a3]",
+        //   "[--time-active-color:#555555] dark:[--time-active-color:#d4d4d4]",
+        //   "[--time-inactive-color:#a3a3a3] dark:[--time-inactive-color:#a3a3a3]",
+        //   "[--description-color:#555555] dark:[--description-color:#d4d4d4]"
+        // )}
+        data={TIMELINE}
+        defaultActiveStep={{
+          time: "September 2020 - March 2021",
+          stepIndex: 0,
+        }}
+        arcConfig={{
+          circleWidth: 4500,
+          angleBetweenMinorSteps: 0.4,
+          lineCountFillBetweenSteps: 8,
+          boundaryPlaceholderLinesCount: 50,
+        }}
+      />
+    </div>
+  );
 }
+
+const TIMELINE: ArcTimelineItem[] = [
+  {
+    time: "September 2020 - March 2021",
+    steps: [
+      {
+        // icon: <RocketIcon width={20} height={20} />,
+        content:
+          "Started working at Apollo Technologies as Junior Systems Engineer",
+      },
+      {
+        content:
+          "Configured and maintained Linux servers with high availability setups, supporting enterprise-level systems.",
+      },
+      {
+        content:
+          "Implemented MySQL database synchronization and replication, ensuring data consistency and minimizing downtime.",
+      },
+      {
+        content:
+          "Assisted in troubleshooting and system monitoring, reducing incident response time.",
+      },
+    ],
+  },
+  {
+    time: "2021 - 2023",
+    steps: [
+      {
+        // icon: <RocketIcon width={20} height={20} />,
+        content: "Started working at Govesmart Solutions Inc",
+      },
+      {
+        content: "Started part-time freelancing as Web Developer",
+      },
+      {
+        // icon: <RocketIcon width={20} height={20} />,
+        content:
+          "Developed and maintained WordPress websites, ensuring cross-browser compatibility and responsive design.",
+      },
+      {
+        // icon: <RocketIcon width={20} height={20} />,
+        content:
+          "Designed and developed responsive websites for small businesses using WordPress, React, and Laravel.",
+      },
+      {
+        // icon: <RocketIcon width={20} height={20} />,
+        content:
+          "Managed social media accounts to increase brand visibility and drive web traffic.",
+      },
+      {
+        content:
+          "Implemented custom API integrations, boosting client site functionality and user engagement.",
+      },
+    ],
+  },
+  {
+    time: "July - September, 2023",
+    steps: [
+      {
+        // icon: <RocketIcon width={20} height={20} />,
+        content:
+          "Started working at Human Incubator Inc. as Wordpress Developer",
+      },
+      {
+        // icon: <RocketIcon width={20} height={20} />,
+        content:
+          "Maintained and enhanced client WordPress sites, fixing performance issues and improving security.",
+      },
+      {
+        // icon: <RocketIcon width={20} height={20} />,
+        content:
+          "Customized themes and plugins, aligning websites with client branding and business needs.",
+      },
+    ],
+  },
+  {
+    time: "October 2023 - September 2025",
+    steps: [
+      {
+        // icon: <RocketIcon width={20} height={20} />,
+        content: "Started working at Koda Kollectiv as Software Engineer",
+      },
+      {
+        // icon: <RocketIcon width={20} height={20} />,
+        content:
+          "Built and integrated RESTful APIs using Nest.js, Laravel, and Prisma to support data exchange across applications.",
+      },
+      {
+        // icon: <RocketIcon width={20} height={20} />,
+        content:
+          "Deployed backend applications on AWS (Elastic Beanstalk + RDS), improving system scalability and reliability.",
+      },
+      {
+        content:
+          "Collaborated with frontend developers using React/Next.js, ensuring efficient API integration",
+      },
+    ],
+  },
+];
