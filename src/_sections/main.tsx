@@ -2,6 +2,7 @@
 
 import { MagicCard } from "../components/magicui/magic-card"
 import Experience from "./experience"
+import { Footer } from "./footer"
 import Hero from "./hero"
 import Skill from "./skill"
 
@@ -12,6 +13,7 @@ export default function Main() {
                 <Hero />
                 <Skill />
                 <Experience />
+                <Footer />
             </MagicCard>
         </div>
     )
