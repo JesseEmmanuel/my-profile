@@ -156,7 +156,7 @@ export function ArcTimeline(props: ArcTimelineProps) {
           </svg>
         </button>
 
-        <div className="flex items-center gap-2">
+        <div className="hidden md:flex items-center gap-2">
           {Array.from({ length: totalSteps }).map((_, index) => (
             <div
               key={index}
@@ -196,8 +196,8 @@ export function ArcTimeline(props: ArcTimelineProps) {
         </button>
       </div>
 
-      <div className="absolute top-16 left-1/2 -translate-x-1/2 z-30 whitespace-nowrap text-center">
-        <div className="text-[var(--time-active-color,#555555)] dark:text-[var(--time-active-color,#d4d4d4)] font-medium">
+      <div className="absolute top-16 left-1/2 -translate-x-1/2 z-30 text-center">
+        <div className="text-[var(--time-active-color,#555555)] dark:text-[var(--time-active-color,#d4d4d4)] font-medium w-full max-w-[200px]">
           {currentTimelineItem.time}
         </div>
       </div>

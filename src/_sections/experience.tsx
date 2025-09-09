@@ -18,7 +18,7 @@ import {
 export default function Experience() {
   return (
     <div className="flex flex-col gap-4 py-20">
-      <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4 text-center dark:text-white">
+      <h2 className="text-2xl sm:text-4xl font-bold text-foreground mb-4 text-center dark:text-white">
         Career Milestones
       </h2>
       <ArcTimeline
