@@ -56,6 +56,7 @@ interface ArcTimelineProps extends ComponentPropsWithoutRef<"div"> {
 }
 
 export function ArcTimeline(props: ArcTimelineProps) {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { className, children, data, arcConfig = {}, defaultActiveStep = {}, ...restProps } = props
 
   const {
@@ -128,6 +129,13 @@ export function ArcTimeline(props: ArcTimelineProps) {
 
   return (
     <div {...restProps} className={cn("relative h-[380px] w-full overflow-hidden", className)}>
+
+      <div className="absolute top-16 left-1/2 -translate-x-1/2 z-30 text-center">
+        <div className="text-[var(--time-active-color,#555555)] dark:text-[var(--time-active-color,#d4d4d4)] font-medium w-full max-w-[200px]">
+          {currentTimelineItem.time}
+        </div>
+      </div>
+
       <div className="absolute top-4 left-1/2 -translate-x-1/2 z-20 flex items-center gap-4">
         <button
           onClick={navigateToPrevious}
@@ -196,12 +204,6 @@ export function ArcTimeline(props: ArcTimelineProps) {
         </button>
       </div>
 
-      <div className="absolute top-16 left-1/2 -translate-x-1/2 z-30 text-center">
-        <div className="text-[var(--time-active-color,#555555)] dark:text-[var(--time-active-color,#d4d4d4)] font-medium w-full max-w-[200px]">
-          {currentTimelineItem.time}
-        </div>
-      </div>
-
       <div
         style={{
           transform: `translateX(-50%) rotate(${circleContainerRotateDeg}deg)`,
@@ -215,12 +217,12 @@ export function ArcTimeline(props: ArcTimelineProps) {
               {line.steps.map((step, stepIndex) => {
                 const angle =
                   angleBetweenMinorSteps *
-                    (lineCountFillBetweenSteps + 1) *
-                    (data
-                      .slice(0, lineIndex)
-                      .map((item) => item.steps.length)
-                      .reduce((prev, current) => prev + current, 0) +
-                      stepIndex) +
+                  (lineCountFillBetweenSteps + 1) *
+                  (data
+                    .slice(0, lineIndex)
+                    .map((item) => item.steps.length)
+                    .reduce((prev, current) => prev + current, 0) +
+                    stepIndex) +
                   angleBetweenMinorSteps * boundaryPlaceholderLinesCount
                 const isLastStep = lineIndex === data.length - 1 && stepIndex === line.steps.length - 1
                 const isFirstStep = lineIndex === 0 && stepIndex === 0
@@ -268,7 +270,7 @@ export function ArcTimeline(props: ArcTimelineProps) {
                           isActive
                             ? "bg-[var(--step-line-active-color,#888888)] dark:bg-[#00df9a] group-hover:bg-[var(--step-line-active-color,#666666)] dark:group-hover:bg-[#00df9a]"
                             : "bg-[var(--step-line-inactive-color,#b1b1b1)] dark:bg-[var(--step-line-inactive-color,#737373)] group-hover:bg-[var(--step-line-inactive-color,#888888)] dark:group-hover:bg-[#00df9a]",
-                          "group-hover:shadow-[0_0_10px_rgba(151,128,255,0.5)] dark:group-hover:shadow-[0_0_10px_rgba(151,128,255,0.7)]",
+                          "group-hover:shadow-[0_0_10px_rgba(227,252,239,0.5)] dark:group-hover:shadow-[0_0_10px_rgba(151,128,255,0.7)]",
                         )}
                         style={{
                           transformOrigin: "center top",

@@ -108,7 +108,7 @@ const DATA = {
       },
       Resume: {
         name: "Download Resume",
-        url: "../assets/JesseEmmanuelBasco_Resume.pdf",
+        url: "../assets/jesse-basco.pdf",
         icon: Icons.resume,
       },
     },
@@ -128,7 +128,7 @@ export default function Hero() {
 
 
   return (
-    <div className="flex flex-col items-center justify-center py-20">
+    <div className="flex flex-col items-center justify-center pb-20">
       <Particles
         className="absolute inset-0 z-0"
         quantity={100}
