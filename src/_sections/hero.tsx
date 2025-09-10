@@ -137,7 +137,7 @@ export default function Hero() {
         refresh
       />
       {setDark &&
-      <Meteors number={30} />
+        <Meteors number={30} />
       }
       <div className="max-w-[1000px] w-full h-screen mx-auto items-center text-center flex flex-col justify-center sm:pt-4 hero-section">
         <IconCloud images={images} />
@@ -173,6 +173,8 @@ export default function Hero() {
                         buttonVariants({ variant: "ghost", size: "icon" }),
                         "size-12 rounded-full dark:text-white"
                       )}
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
                       <social.icon className="size-4" />
                     </a>
