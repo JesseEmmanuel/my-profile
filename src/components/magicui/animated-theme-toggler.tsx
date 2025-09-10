@@ -10,11 +10,12 @@ type props = {
 };
 
 export const AnimatedThemeToggler = ({ className }: props) => {
-  const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
+  const [isDarkMode, setIsDarkMode] = useState<boolean>(true);
   const buttonRef = useRef<HTMLButtonElement | null>(null);
   const changeTheme = async () => {
     if (!buttonRef.current) return;
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     await (document as any).startViewTransition(() => {
       flushSync(() => {
         const dark = document.documentElement.classList.toggle("dark");

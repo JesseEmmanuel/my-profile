@@ -116,7 +116,7 @@ const DATA = {
 };
 
 export default function Hero() {
-  const [setDark, isSetDark] = useState(false);
+  const [setDark, isSetDark] = useState(true);
 
   const handleClick = () => {
     isSetDark(!setDark);
