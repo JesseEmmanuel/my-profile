@@ -170,7 +170,7 @@ export default function Hero() {
               loop={true}
             />
           </p>
-          <h2 className="text-md mt-3 text-black mx-8 dark:text-white">
+          <h2 className="text-sm md:text-md mt-3 text-black mx-8 dark:text-white">
             I am Highly invested in building websites and API-Driven Web Apps
             with JavaScript and PHP language/frameworks. Willing to learn more
             Application Development not limited in Web Applications.

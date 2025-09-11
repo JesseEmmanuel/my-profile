@@ -7,13 +7,13 @@ export default function Skill() {
   return (
     <div className="w-full md:flex md:flex-col">
         <div className="flex flex-col gap-4 justify-center items-center"></div>
-        <section id="skills" className="py-10 bg-background">
+        <section id="skills" className="py-10 bg-background pt-24 sm:pt-10">
           <div className="mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <div className="text-center mb-16">
               <h2 className="text-2xl sm:text-4xl font-bold text-foreground mb-4 dark:text-white">
                 Technical Skills
               </h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto dark:text-white">
+              <p className="text-sm md:text-md text-muted-foreground max-w-2xl mx-auto dark:text-white">
                 A comprehensive overview of the technologies and tools I work with
                 to build modern web applications.
               </p>
@@ -33,7 +33,7 @@ export default function Skill() {
                         <h1 className="text-xl font-bold text-foreground text-center dark:text-white">
                           {category.title}
                         </h1>
-                        <p className="text-md dark:text-white">{category.description}</p>
+                        <p className="text-sm md:text-md dark:text-white">{category.description}</p>
                       </div>
                     </CardHeader>
                     <CardContent>
@@ -68,7 +68,7 @@ export default function Skill() {
                   <h3 className="text-2xl font-bold text-foreground mb-4 dark:text-white">
                     Always Learning
                   </h3>
-                  <p className="text-muted-foreground leading-relaxed dark:text-white">
+                  <p className="text-sm md:text-md text-muted-foreground leading-relaxed dark:text-white">
                     I'm highly adaptable and committed to learning new
                     technologies efficiently to meet project and business needs.
                     My experience spans from system administration and database
