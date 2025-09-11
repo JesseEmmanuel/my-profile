@@ -1,6 +1,6 @@
 "use client"
 import { cn } from "../../lib/utils"
-import { type ComponentPropsWithoutRef, type ReactNode, useState } from "react"
+import { type ComponentPropsWithoutRef, type ReactNode, useRef, useState } from "react"
 
 export interface ArcTimelineItem {
   time: ReactNode
@@ -112,6 +112,29 @@ export function ArcTimeline(props: ArcTimelineProps) {
     }
   }
 
+  const touchStartX = useRef<number | null>(null)
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    if (window.innerWidth < 768) {
+      touchStartX.current = e.touches[0].clientX
+    }
+  }
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (window.innerWidth < 768 && touchStartX.current !== null) {
+      const diff = e.changedTouches[0].clientX - touchStartX.current
+
+      if (Math.abs(diff) > 50) {
+        if (diff > 0) {
+          navigateToPrevious() // swipe right
+        } else {
+          navigateToNext() // swipe left
+        }
+      }
+      touchStartX.current = null
+    }
+  }
+
   const getCurrentTimelineItem = () => {
     let count = 0
     for (let i = 0; i < data.length; i++) {
@@ -128,7 +151,10 @@ export function ArcTimeline(props: ArcTimelineProps) {
   const currentTimelineItem = getCurrentTimelineItem()
 
   return (
-    <div {...restProps} className={cn("relative h-[380px] w-full overflow-hidden", className)}>
+    <div {...restProps}
+      className={cn("relative h-[380px] w-full overflow-hidden", className)}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}>
 
       <div className="absolute top-16 left-1/2 -translate-x-1/2 z-30 text-center">
         <div className="text-[var(--time-active-color,#555555)] dark:text-[var(--time-active-color,#d4d4d4)] font-medium w-full max-w-[200px]">

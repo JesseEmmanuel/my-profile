@@ -140,7 +140,7 @@ export default function Hero() {
         <Meteors number={30} />
       }
       <div className="max-w-[1000px] w-full h-screen mx-auto items-center text-center flex flex-col justify-center sm:pt-4 hero-section">
-        <IconCloud images={images} />
+        <IconCloud images={images}/>
         <p className="text-[#00df9a] font-bold p-2">SOFTWARE DEVELOPER</p>
         <h1 className="md:text-5xl sm:text-4xl text-2xl text-black font-bold my-2 dark:text-white">
           Hi, I'm Jesse. Welcome to my portfolio 👋
