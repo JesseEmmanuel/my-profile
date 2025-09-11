@@ -167,7 +167,7 @@ export function ArcTimeline(props: ArcTimelineProps) {
           onClick={navigateToPrevious}
           disabled={currentGlobalStepIndex === 0}
           className={cn(
-            "flex items-center justify-center w-10 h-10 rounded-full border-2 transition-all duration-200",
+            "hidden md:flex items-center justify-center w-10 h-10 rounded-full border-2 transition-all duration-200",
             "bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-600",
             "hover:bg-gray-50 dark:hover:bg-gray-700 hover:border-gray-400 dark:hover:border-gray-500",
             "disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-white dark:disabled:hover:bg-gray-800",
@@ -206,7 +206,7 @@ export function ArcTimeline(props: ArcTimelineProps) {
           onClick={navigateToNext}
           disabled={currentGlobalStepIndex === totalSteps - 1}
           className={cn(
-            "flex items-center justify-center w-10 h-10 rounded-full border-2 transition-all duration-200",
+            "hidden md:flex items-center justify-center w-10 h-10 rounded-full border-2 transition-all duration-200",
             "bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-600",
             "hover:bg-gray-50 dark:hover:bg-gray-700 hover:border-gray-400 dark:hover:border-gray-500",
             "disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-white dark:disabled:hover:bg-gray-800",

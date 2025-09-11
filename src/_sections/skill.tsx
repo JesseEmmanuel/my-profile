@@ -3,8 +3,7 @@
 import { Card, CardContent, CardHeader } from "../components/ui/card";
 import { skillCategories } from "../data/skill-categories";
 
-export default function Skill({ isDarkMode }: { isDarkMode?: boolean }) {
-  console.log(isDarkMode);
+export default function Skill() {
   return (
     <div className="w-full md:flex md:flex-col">
         <div className="flex flex-col gap-4 justify-center items-center"></div>
@@ -25,7 +24,7 @@ export default function Skill({ isDarkMode }: { isDarkMode?: boolean }) {
                 return (
                   <Card
                     key={index}
-                    className="hover:shadow-lg dark:shadow-gray-400 transition-all duration-300 hover:-translate-y-1 w-[400px] border-2 border-[#101A36] dark:border-white"
+                    className=" flex flex-col justify-between hover:shadow-lg dark:shadow-gray-400 transition-all duration-300 hover:-translate-y-1 w-[400px] border-2 border-[#101A36] dark:border-white"
                   >
                     <CardHeader className="text-center pb-4">
                       <div
@@ -34,9 +33,8 @@ export default function Skill({ isDarkMode }: { isDarkMode?: boolean }) {
                         <h1 className="text-xl font-bold text-foreground text-center dark:text-white">
                           {category.title}
                         </h1>
-                        {/* <Lottie options={category.icon} width={150} /> */}
+                        <p className="text-md dark:text-white">{category.description}</p>
                       </div>
-                      {/* <CardTitle className="text-xl text-left text-foreground">{category.title}</CardTitle> */}
                     </CardHeader>
                     <CardContent>
                       <div className="flex flex-wrap gap-3">

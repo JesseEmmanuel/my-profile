@@ -5,6 +5,7 @@ import Tools from '../assets/tools.json'
 export const skillCategories = [
     {
         title: "Frontend",
+        description: "Built user-focused apps with React.js and Next.js, styled with Tailwind CSS, ShadCN, and HeroUI, ensuring both usability and smooth integration.",
         icon: {
             loop: true,
             autoplay: true,
@@ -48,6 +49,7 @@ export const skillCategories = [
     },
     {
         title: "Backend",
+        description: "Developed RESTful APIs with Node.js (NestJS), Django, and Laravel, managing authentication, performance, and relational databases like PostgreSQL and MySQL.",
         icon: {
             loop: true,
             autoplay: true,
@@ -94,6 +96,7 @@ export const skillCategories = [
     },
     {
         title: "Dev Tools",
+        description: "Skilled with GitHub, Postman, XAMPP, PgAdmin, MySQL Workbench, and VS Code for efficient development and collaboration.",
         icon: {
             loop: true,
             autoplay: true,
