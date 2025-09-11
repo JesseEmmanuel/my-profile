@@ -128,7 +128,7 @@ export default function Hero() {
 
 
   return (
-    <div className="flex flex-col items-center justify-center py-20 md:mt-[-80px]">
+    <div className="flex flex-col items-center justify-center md:py-20 md:mt-[-80px]">
       <Particles
         className="absolute inset-0 z-0"
         quantity={100}
