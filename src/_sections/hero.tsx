@@ -128,7 +128,7 @@ export default function Hero() {
 
 
   return (
-    <div className="flex flex-col items-center justify-center pb-20">
+    <div className="flex flex-col items-center justify-center py-20 md:mt-[-80px]">
       <Particles
         className="absolute inset-0 z-0"
         quantity={100}
@@ -142,7 +142,7 @@ export default function Hero() {
       <div className="max-w-[1000px] w-full h-screen mx-auto items-center text-center flex flex-col justify-center sm:pt-4 hero-section">
         <IconCloud images={images} />
         <p className="text-[#00df9a] font-bold p-2">SOFTWARE DEVELOPER</p>
-        <h1 className="md:text-5xl sm:text-4xl text-4xl text-black font-bold my-2 dark:text-white">
+        <h1 className="md:text-5xl sm:text-4xl text-2xl text-black font-bold my-2 dark:text-white">
           Hi, I'm Jesse. Welcome to my portfolio 👋
         </h1>
         <div>
@@ -160,45 +160,47 @@ export default function Hero() {
             Application Development not limited in Web Applications.
           </h2>
         </div>
-        <TooltipProvider>
-          <Dock direction="middle" className="dark:border-white">
-            {Object.entries(DATA.contact.social).map(([name, social]) => (
-              <DockIcon key={name}>
+        <div className="fixed bottom-4 md:top-4 left-1/2 -translate-x-1/2 z-50">
+          <TooltipProvider>
+            <Dock direction="middle" className="dark:border-white">
+              {Object.entries(DATA.contact.social).map(([name, social]) => (
+                <DockIcon key={name}>
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <a
+                        href={social.url}
+                        aria-label={social.name}
+                        className={cn(
+                          buttonVariants({ variant: "ghost", size: "icon" }),
+                          "size-12 rounded-full dark:text-white"
+                        )}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <social.icon className="size-4" />
+                      </a>
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <p className="dark:text-white">{name}</p>
+                    </TooltipContent>
+                  </Tooltip>
+                </DockIcon>
+              ))}
+              <DockIcon>
                 <Tooltip>
                   <TooltipTrigger asChild>
-                    <a
-                      href={social.url}
-                      aria-label={social.name}
-                      className={cn(
-                        buttonVariants({ variant: "ghost", size: "icon" }),
-                        "size-12 rounded-full dark:text-white"
-                      )}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <social.icon className="size-4" />
-                    </a>
+                    <button onClick={handleClick}>
+                      <AnimatedThemeToggler className="rounded-full" />
+                    </button>
                   </TooltipTrigger>
                   <TooltipContent>
-                    <p className="dark:text-white">{name}</p>
+                    <p className="dark:text-white">Theme</p>
                   </TooltipContent>
                 </Tooltip>
               </DockIcon>
-            ))}
-            <DockIcon>
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <button onClick={handleClick}>
-                    <AnimatedThemeToggler className="rounded-full" />
-                  </button>
-                </TooltipTrigger>
-                <TooltipContent>
-                  <p className="dark:text-white">Theme</p>
-                </TooltipContent>
-              </Tooltip>
-            </DockIcon>
-          </Dock>
-        </TooltipProvider>
+            </Dock>
+          </TooltipProvider>
+        </div>
       </div>
     </div>
   );
