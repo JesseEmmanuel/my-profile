@@ -108,7 +108,7 @@ const DATA = {
       },
       Resume: {
         name: "Download Resume",
-        url: "../assets/jesse-basco.pdf",
+        url: "../assets/jesse_emmanuel_basco.pdf",
         icon: Icons.resume,
       },
     },
