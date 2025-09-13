@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader } from "../components/ui/card";
 import { skillCategories } from "../data/skill-categories";
 
 export default function Skill() {
+  //test/
   return (
     <div className="w-full md:flex md:flex-col">
         <div className="flex flex-col gap-4 justify-center items-center"></div>
