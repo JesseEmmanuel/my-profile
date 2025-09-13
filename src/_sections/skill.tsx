@@ -61,8 +61,6 @@ export default function Skill() {
                 );
               })}
             </div>
-
-
             <div className="mt-16 text-center">
               <Card className="max-w-4xl mx-auto border-2 border-[#101A36] dark:border-white">
                 <CardContent className="p-8">
