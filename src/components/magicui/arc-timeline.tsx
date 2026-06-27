@@ -152,12 +152,12 @@ export function ArcTimeline(props: ArcTimelineProps) {
 
   return (
     <div {...restProps}
-      className={cn("relative h-[380px] w-full overflow-hidden", className)}
+      className={cn("relative h-[450px] w-full overflow-hidden", className)}
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}>
 
       <div className="absolute top-16 left-1/2 -translate-x-1/2 z-30 text-center">
-        <div className="text-[var(--time-active-color,#555555)] dark:text-[var(--time-active-color,#d4d4d4)] font-medium w-full max-w-[200px]">
+        <div className="text-[var(--time-active-color,#555555)] dark:text-[var(--time-active-color,#d4d4d4)] font-medium w-full max-w-[500px]">
           {currentTimelineItem.time}
         </div>
       </div>

@@ -34,7 +34,7 @@ export default function Experience() {
         // )}
         data={TIMELINE}
         defaultActiveStep={{
-          time: "September 2020 - March 2021",
+          time: "September 2025 - July 2026",
           stepIndex: 0,
         }}
         arcConfig={{
@@ -141,6 +141,33 @@ const TIMELINE: ArcTimelineItem[] = [
       {
         content:
           "Collaborated with frontend developers using React/Next.js, ensuring efficient API integration",
+      },
+    ],
+  },
+  {
+    time: "September 2025 - July 2026",
+    steps: [
+      {
+        // icon: <RocketIcon width={20} height={20} />,
+        content: "Started working at Tidewrk as Frontend Developer",
+      },
+      {
+        // icon: <RocketIcon width={20} height={20} />,
+        content:
+          "Maintained and improved client-facing web applications using Next.js and TypeScript.",
+      },
+      {
+        // icon: <RocketIcon width={20} height={20} />,
+        content:
+          "Collaborated with cross-functional teams in an Agile Scrum environment to deliver features and resolve issues.",
+      },
+      {
+        content:
+          "Built and enhanced application features using React Hook Form, Zod, React Query, and shadcn/ui, focusing on form validation, API integration, and intuitive user interfaces.",
+      },
+      {
+        content:
+          "Managed source code with Bitbucket, tracked development tasks in Jira, and collaborated with team members through Microsoft Teams",
       },
     ],
   },
