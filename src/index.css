@@ -93,7 +93,8 @@ body {
 }
 
 .scrollbar-mini::-webkit-scrollbar {
-  width: 5px;         /* Chrome, Safari, Opera */
+  width: 5px;
+  /* Chrome, Safari, Opera */
 }
 
 .scrollbar-mini::-webkit-scrollbar-thumb {
@@ -104,7 +105,7 @@ body {
   position: absolute;
   width: 0px;
   opacity: .75;
-  background-color: white;
+  background-color: rgb(234, 230, 230);
   box-shadow: #e9f1f1 0px 0px 20px 2px;
   opacity: 0;
   top: 100vh;
@@ -560,6 +561,10 @@ body {
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
   }
+
+  .theme {
+    --animate-orbit: orbit calc(var(--duration)*1s) linear infinite;
+  }
 }
 
 @layer base {
@@ -580,11 +585,13 @@ body {
 
 @layer utilities {
   @keyframes gradient-xy {
+
     0%,
     100% {
       background-size: 400% 400%;
       background-position: left center;
     }
+
     50% {
       background-size: 200% 200%;
       background-position: right center;
@@ -592,15 +599,18 @@ body {
   }
 
   @keyframes float {
+
     0%,
     100% {
       transform: translateY(0px) translateX(0px);
       opacity: 0.7;
     }
+
     33% {
       transform: translateY(-20px) translateX(10px);
       opacity: 1;
     }
+
     66% {
       transform: translateY(10px) translateX(-5px);
       opacity: 0.8;
@@ -608,15 +618,18 @@ body {
   }
 
   @keyframes float-delayed {
+
     0%,
     100% {
       transform: translateY(0px) translateX(0px);
       opacity: 0.5;
     }
+
     33% {
       transform: translateY(15px) translateX(-8px);
       opacity: 0.9;
     }
+
     66% {
       transform: translateY(-10px) translateX(12px);
       opacity: 0.7;
@@ -624,11 +637,13 @@ body {
   }
 
   @keyframes float-slow {
+
     0%,
     100% {
       transform: translateY(0px) translateX(0px);
       opacity: 0.4;
     }
+
     50% {
       transform: translateY(-30px) translateX(15px);
       opacity: 0.8;
@@ -636,11 +651,13 @@ body {
   }
 
   @keyframes pulse-slow {
+
     0%,
     100% {
       opacity: 0.3;
       transform: scale(1);
     }
+
     50% {
       opacity: 0.6;
       transform: scale(1.05);
@@ -668,7 +685,20 @@ body {
   }
 }
 
-::view-transition-old(root), ::view-transition-new(root) {
-    animation: none;
-    mix-blend-mode: normal;
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+@theme inline {
+  @keyframes orbit {
+    0% {
+      transform: rotate(calc(var(--angle) * 1deg)) translateY(calc(var(--radius) * 1px)) rotate(calc(var(--angle) * -1deg));
+    }
+
+    100% {
+      transform: rotate(calc(var(--angle) * 1deg + 360deg)) translateY(calc(var(--radius) * 1px)) rotate(calc((var(--angle) * -1deg) - 360deg));
+    }
+  }
 }

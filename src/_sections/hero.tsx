@@ -179,47 +179,47 @@ export default function Hero() {
 
         {/* Sticky Dock - only visible after scrolling past hero */}
         {/* {isSticky && ( */}
-          <div className={`${isSticky && 'fixed top-1 left-1/2 -translate-x-1/2 z-50'}`}>
-            <TooltipProvider>
-              <Dock direction="middle" className="dark:border-white">
-                {Object.entries(DATA.contact.social).map(([name, social]) => (
-                  <DockIcon key={name}>
-                    <Tooltip>
-                      <TooltipTrigger asChild>
-                        <a
-                          href={social.url}
-                          aria-label={social.name}
-                          className={cn(
-                            buttonVariants({ variant: "ghost", size: "icon" }),
-                            "size-12 rounded-full dark:text-white"
-                          )}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <social.icon className="size-4" />
-                        </a>
-                      </TooltipTrigger>
-                      <TooltipContent>
-                        <p className="dark:text-white">{name}</p>
-                      </TooltipContent>
-                    </Tooltip>
-                  </DockIcon>
-                ))}
-                <DockIcon>
+        <div className={`${isSticky && 'fixed top-1 left-1/2 -translate-x-1/2 z-50'}`}>
+          <TooltipProvider>
+            <Dock direction="middle" className="dark:border-white rounded-none">
+              {Object.entries(DATA.contact.social).map(([name, social]) => (
+                <DockIcon key={name}>
                   <Tooltip>
                     <TooltipTrigger asChild>
-                      <button onClick={handleClick}>
-                        <AnimatedThemeToggler className="rounded-full" />
-                      </button>
+                      <a
+                        href={social.url}
+                        aria-label={social.name}
+                        className={cn(
+                          buttonVariants({ variant: "ghost", size: "icon" }),
+                          "size-12 rounded-full dark:text-white"
+                        )}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <social.icon className="size-4" />
+                      </a>
                     </TooltipTrigger>
                     <TooltipContent>
-                      <p className="dark:text-white">Theme</p>
+                      <p className="dark:text-white">{name}</p>
                     </TooltipContent>
                   </Tooltip>
                 </DockIcon>
-              </Dock>
-            </TooltipProvider>
-          </div>
+              ))}
+              <DockIcon>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <button onClick={handleClick}>
+                      <AnimatedThemeToggler className="rounded-full" />
+                    </button>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p className="dark:text-white">Theme</p>
+                  </TooltipContent>
+                </Tooltip>
+              </DockIcon>
+            </Dock>
+          </TooltipProvider>
+        </div>
         {/* )} */}
       </div>
     </div>

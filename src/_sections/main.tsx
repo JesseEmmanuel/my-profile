@@ -6,19 +6,23 @@ import Experience from "./experience"
 import { Footer } from "./footer"
 import Hero from "./hero"
 import Skill from "./skill"
+import Projects from "./projects"
 
 export default function Main() {
     useEffect(() => {
         document.documentElement.classList.add("dark")
     }, [])
     return (
-        <div className='flex flex-col gap-20 dark:bg-[#101A36] p-4'>
+        <div className='dark:bg-[#101A36] p-4'>
             <MagicCard gradientColor={"#D9D9D955"}>
-                <Hero />
-                <Skill />
+                <div className="flex flex-col gap-20 w-full max-w-4xl mx-auto">
+                    <Hero />
+                    <Skill />
+                    <Projects />
+                </div>
                 <Experience />
                 <Footer />
             </MagicCard>
-        </div>
+        </div >
     )
 }
