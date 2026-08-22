@@ -1,49 +1,42 @@
-// import { ArcTimeline, ArcTimelineItem } from "@/components/magicui/arc-timeline";
+"use client";
+
+import AnimatedSection from "../components/animated-section";
 import {
   ArcTimeline,
   type ArcTimelineItem,
 } from "../components/magicui/arc-timeline";
-// import {
-//   RocketIcon,
-//   CubeIcon,
-//   LockClosedIcon,
-//   GlobeIcon,
-//   GearIcon,
-//   LightningBoltIcon,
-//   StarIcon,
-//   MagicWandIcon,
-// } from "@radix-ui/react-icons";
-// import { RocketIcon, } from "lucide-react";
 
 export default function Experience() {
   return (
-    <div className="flex flex-col gap-4 py-20">
-      <h2 className="text-2xl sm:text-4xl font-bold text-foreground mb-4 text-center dark:text-white">
-        Career Milestones
-      </h2>
-      <ArcTimeline
-        // className={cn(
-        //   "[--step-line-active-color:#888888] dark:[--step-line-active-color:#9780ff]",
-        //   "[--step-line-inactive-color:#b1b1b1] dark:[--step-line-inactive-color:#737373]",
-        //   "[--placeholder-line-color:#a1a1a1] dark:[--placeholder-line-color:#737373]",
-        //   "[--icon-active-color:#555555] dark:[--icon-active-color:#d4d4d4]",
-        //   "[--icon-inactive-color:#a3a3a3] dark:[--icon-inactive-color:#a3a3a3]",
-        //   "[--time-active-color:#555555] dark:[--time-active-color:#d4d4d4]",
-        //   "[--time-inactive-color:#a3a3a3] dark:[--time-inactive-color:#a3a3a3]",
-        //   "[--description-color:#555555] dark:[--description-color:#d4d4d4]"
-        // )}
-        data={TIMELINE}
-        defaultActiveStep={{
-          time: "September 2025 - July 2026",
-          stepIndex: 0,
-        }}
-        arcConfig={{
-          circleWidth: 4500,
-          angleBetweenMinorSteps: 0.4,
-          lineCountFillBetweenSteps: 8,
-          boundaryPlaceholderLinesCount: 50,
-        }}
-      />
+    <div className="flex flex-col gap-4 py-20 overflow-hidden">
+
+      {/* Header sliding down */}
+      <AnimatedSection direction="down" className="flex flex-col items-center px-4">
+        <h2 className="text-2xl sm:text-4xl font-bold text-foreground mb-4 text-center dark:text-white">
+          Career Milestones
+        </h2>
+        <p className="text-sm md:text-lg text-muted-foreground max-w-2xl text-center mb-8 dark:text-gray-300">
+          A timeline of my professional journey, roles, and the key experiences that have shaped my career as a developer.
+        </p>
+      </AnimatedSection>
+
+      {/* The entire timeline floating up smoothly */}
+      <AnimatedSection direction="up" delay={0.2}>
+        <ArcTimeline
+          data={TIMELINE}
+          defaultActiveStep={{
+            time: "September 2025 - July 2026",
+            stepIndex: 0,
+          }}
+          arcConfig={{
+            circleWidth: 4500,
+            angleBetweenMinorSteps: 0.4,
+            lineCountFillBetweenSteps: 8,
+            boundaryPlaceholderLinesCount: 50,
+          }}
+        />
+      </AnimatedSection>
+
     </div>
   );
 }

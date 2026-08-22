@@ -15,7 +15,7 @@ export default function Main() {
     return (
         <div className='dark:bg-[#101A36] p-4'>
             <MagicCard gradientColor={"#D9D9D955"}>
-                <div className="flex flex-col gap-20 w-full max-w-4xl mx-auto">
+                <div className="flex flex-col gap-20 w-full max-w-5xl mx-auto">
                     <Hero />
                     <Skill />
                     <Projects />

@@ -17,8 +17,42 @@ import { Particles } from "../components/magicui/particles";
 import { useEffect, useRef, useState } from "react";
 import { Meteors } from "../components/magicui/meteors";
 import { SiReaddotcv } from "react-icons/si";
+import { motion } from "framer-motion";
 
 export type IconProps = React.HTMLAttributes<SVGElement>;
+
+// Reusable Animated Section Component
+const AnimatedSection = ({
+  children,
+  direction = "up",
+  delay = 0,
+  className = "",
+}: {
+  children: React.ReactNode;
+  direction?: "up" | "down" | "left" | "right" | "none";
+  delay?: number;
+  className?: string;
+}) => {
+  const directions = {
+    up: { y: 40, opacity: 0 },
+    down: { y: -40, opacity: 0 },
+    left: { x: 40, opacity: 0 },
+    right: { x: -40, opacity: 0 },
+    none: { opacity: 0 },
+  };
+
+  return (
+    <motion.div
+      initial={directions[direction]}
+      whileInView={{ x: 0, y: 0, opacity: 1 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.7, delay, ease: "easeOut" }}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
+};
 
 const slugs = [
   "typescript",
@@ -45,7 +79,7 @@ const slugs = [
   "tailwind",
   "django",
   "postman",
-  "xampp"
+  "xampp",
 ];
 
 const Icons = {
@@ -143,7 +177,7 @@ export default function Hero() {
   return (
     <div
       ref={heroRef}
-      className="flex flex-col items-center justify-center md:py-20 md:mt-[-140px]"
+      className="flex flex-col items-center justify-center md:py-10 md:mt-[-100px]"
     >
       <Particles
         className="absolute inset-0 z-0"
@@ -154,14 +188,23 @@ export default function Hero() {
       />
       {setDark && <Meteors number={30} />}
 
-      <div className="max-w-[1000px] w-full h-screen mx-auto items-center text-center flex flex-col justify-center sm:pt-4 hero-section">
-        <IconCloud images={images} />
-        <p className="text-[#00df9a] font-bold p-2">SOFTWARE DEVELOPER</p>
-        <h1 className="md:text-5xl sm:text-4xl text-2xl text-black font-bold my-2 dark:text-white">
-          Hi, I'm Jesse. Welcome to my portfolio 👋
-        </h1>
+      <div className="max-w-[1000px] w-full h-screen mx-auto items-center text-center flex flex-col justify-center sm:pt-4 hero-section relative z-10">
 
-        <div>
+        {/* Floating in from the top */}
+        <AnimatedSection direction="down" delay={0.1}>
+          <IconCloud images={images} />
+        </AnimatedSection>
+
+        {/* Sliding in from the left */}
+        <AnimatedSection direction="left" delay={0.3}>
+          <p className="text-[#00df9a] font-bold p-2">FULL STACK WEB DEVELOPER</p>
+          <h1 className="md:text-5xl sm:text-4xl text-2xl text-black font-bold my-2 dark:text-white">
+            Hi, I'm Jesse.
+          </h1>
+        </AnimatedSection>
+
+        {/* Sliding in from the right */}
+        <AnimatedSection direction="right" delay={0.5}>
           <p className="md:text-5xl sm:text-4xl text-xl font-bold py-4 text-[#00df9a]">
             <ReactTyped
               strings={["Code", "Learn", "Grow"]}
@@ -170,57 +213,65 @@ export default function Hero() {
               loop={true}
             />
           </p>
-          <h2 className="text-sm md:text-md mt-3 text-black mx-8 dark:text-white">
-            I am Highly invested in building websites and API-Driven Web Apps
-            with JavaScript and PHP language/frameworks. Willing to learn more
-            Application Development not limited in Web Applications.
+          <h2 className="text-sm md:text-lg mt-3 text-black mx-8 dark:text-white">
+            I specialize in building scalable full-stack applications and robust APIs across the JavaScript, PHP, and Python ecosystems. I'm a continuous learner, always eager to expand my expertise across all areas of software development.
           </h2>
-        </div>
+        </AnimatedSection>
 
-        {/* Sticky Dock - only visible after scrolling past hero */}
-        {/* {isSticky && ( */}
-        <div className={`${isSticky && 'fixed top-1 left-1/2 -translate-x-1/2 z-50'}`}>
-          <TooltipProvider>
-            <Dock direction="middle" className="dark:border-white rounded-none">
-              {Object.entries(DATA.contact.social).map(([name, social]) => (
-                <DockIcon key={name}>
+        {/* Floating up from the bottom */}
+        <div
+          className={
+            isSticky
+              ? "fixed top-1 left-0 right-0 z-50 flex justify-center"
+              : ""
+          }
+        >
+          <AnimatedSection
+            direction="up"
+            delay={0.7}
+          >
+            <TooltipProvider>
+              <Dock direction="middle" className="dark:border-white rounded-none">
+                {Object.entries(DATA.contact.social).map(([name, social]) => (
+                  <DockIcon key={name}>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <a
+                          href={social.url}
+                          aria-label={social.name}
+                          className={cn(
+                            buttonVariants({ variant: "ghost", size: "icon" }),
+                            "size-12 rounded-full dark:text-white"
+                          )}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <social.icon className="size-4" />
+                        </a>
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        <p className="dark:text-white">{name}</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  </DockIcon>
+                ))}
+                <DockIcon>
                   <Tooltip>
                     <TooltipTrigger asChild>
-                      <a
-                        href={social.url}
-                        aria-label={social.name}
-                        className={cn(
-                          buttonVariants({ variant: "ghost", size: "icon" }),
-                          "size-12 rounded-full dark:text-white"
-                        )}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <social.icon className="size-4" />
-                      </a>
+                      <button onClick={handleClick}>
+                        <AnimatedThemeToggler className="rounded-full" />
+                      </button>
                     </TooltipTrigger>
                     <TooltipContent>
-                      <p className="dark:text-white">{name}</p>
+                      <p className="dark:text-white">Theme</p>
                     </TooltipContent>
                   </Tooltip>
                 </DockIcon>
-              ))}
-              <DockIcon>
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <button onClick={handleClick}>
-                      <AnimatedThemeToggler className="rounded-full" />
-                    </button>
-                  </TooltipTrigger>
-                  <TooltipContent>
-                    <p className="dark:text-white">Theme</p>
-                  </TooltipContent>
-                </Tooltip>
-              </DockIcon>
-            </Dock>
-          </TooltipProvider>
+              </Dock>
+            </TooltipProvider>
+          </AnimatedSection>
         </div>
-        {/* )} */}
+
       </div>
     </div>
   );
