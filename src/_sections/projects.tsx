@@ -2,28 +2,10 @@
 
 import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from "../components/ui/card";
 import { Button } from "../components/ui/button";
-import { ExternalLink, Github } from "lucide-react";
+import { Github } from "lucide-react";
 
 export default function Projects() {
     const projects = [
-        {
-            title: "Fluidfocus Mobile App",
-            image: "assets/fluidfocus.png",
-            description:
-                "Working as a backend developer to build Restful API using Laravel for the mobile App. This mobile app assists the user to be productive thus helping them to focus on their work. It is a productivity app that helps the user to focus on their work by blocking distracting apps and websites.",
-            links: [
-                {
-                    label: "Visit BE Repo",
-                    href: "https://github.com/JesseEmmanuel/fluid",
-                    icon: Github,
-                },
-                {
-                    label: "Visit Site",
-                    href: "https://www.fluidfocus.app/",
-                    icon: ExternalLink,
-                },
-            ],
-        },
         {
             title: "Build Bubble",
             image: "assets/buildbuubble.png",
