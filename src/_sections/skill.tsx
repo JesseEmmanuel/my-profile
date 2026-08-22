@@ -1,6 +1,5 @@
 "use client";
 
-import AnimatedSection from "../components/animated-section";
 import { Card, CardContent, CardHeader } from "../components/ui/card";
 import { skillCategories } from "../data/skill-categories";
 
@@ -12,36 +11,20 @@ export default function Skill() {
         <div className="mx-auto px-4 sm:px-6 lg:px-8 w-full">
 
           {/* Header section sliding in from the top */}
-          <AnimatedSection direction="down" className="text-center mb-16">
+          <div className="text-center mb-16">
             <h2 className="text-2xl sm:text-4xl font-bold text-foreground mb-4 dark:text-white">
               Tech Stack
             </h2>
             <p className="text-sm md:text-lg text-muted-foreground max-w-2xl mx-auto dark:text-white">
               A curated look at the frontend frameworks and backend architectures I use to transform ideas into seamless digital experiences.
             </p>
-          </AnimatedSection>
+          </div>
 
           <div className="flex flex-wrap gap-8 justify-center items-stretch">
-            {skillCategories.map((category, index) => {
-
-              // Determine direction based on the title keywords
-              const isFrontend = category.title.toLowerCase().includes("front");
-              const isBackend = category.title.toLowerCase().includes("back");
-
-              // "right" means it starts left (-40px) and moves right. (Left to Right)
-              // "left" means it starts right (+40px) and moves left. (Right to Left)
-              // Fallback to alternating odd/even index if names don't contain front/back
-              let slideDirection: "left" | "right" = index % 2 === 0 ? "right" : "left";
-
-              if (isFrontend) slideDirection = "right";
-              if (isBackend) slideDirection = "left";
+            {skillCategories.map((category) => {
 
               return (
-                <AnimatedSection
-                  key={index}
-                  direction={slideDirection}
-                  delay={0.2} // Same delay ensures they move synchronously
-                >
+                <div>
                   <Card
                     className="flex flex-col justify-between h-full hover:shadow-lg dark:shadow-gray-400 transition-all duration-300 hover:-translate-y-1 w-full max-w-[400px] min-w-[300px] border-2 border-[#101A36] dark:border-white rounded-none"
                   >
@@ -78,7 +61,7 @@ export default function Skill() {
                       </div>
                     </CardContent>
                   </Card>
-                </AnimatedSection>
+                </div>
               );
             })}
           </div>

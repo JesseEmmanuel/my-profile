@@ -3,7 +3,6 @@
 import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from "../components/ui/card";
 import { Button } from "../components/ui/button";
 import { ExternalLink, Github } from "lucide-react";
-import AnimatedSection from "../components/animated-section"; // Ensure this path is correct
 
 export default function Projects() {
     const projects = [
@@ -78,72 +77,60 @@ export default function Projects() {
 
     return (
         <div className='flex flex-col gap-8 items-center justify-center py-10'>
-            <AnimatedSection direction="down" className='flex flex-col gap-2 items-center justify-center text-center px-4'>
+            <div className='flex flex-col gap-2 items-center justify-center text-center px-4'>
                 <h2 className="text-2xl sm:text-4xl font-bold text-foreground dark:text-white">
                     Some projects I have worked on
                 </h2>
                 <p className="text-sm md:text-lg text-muted-foreground max-w-2xl mx-auto dark:text-gray-300">
                     Here are a few highlights of my recent work, ranging from robust backend APIs to full-stack applications.
                 </p>
-            </AnimatedSection>
+            </div>
 
-            <div className="mx-12 lg:mx-24 grid grid-cols-1 gap-6 dark:text-white md:grid-cols-2">
-                {projects.map((project, index) => {
-                    // Even index (0, 2) slides right (from left), Odd index (1, 3) slides left (from right)
-                    const slideDirection = index % 2 === 0 ? "right" : "left";
-                    // Slight stagger effect for each card so they pop in one after another
-                    const staggerDelay = 0.2 + (index * 0.1);
-
+            <div className="mx-12 lg:mx-24 grid grid-cols-1 gap-6 dark:text-white md:grid-cols-2 justify-items-center lg:justify-items-center!">
+                {projects.map((project) => {
                     return (
-                        <AnimatedSection
-                            key={project.title}
-                            direction={slideDirection}
-                            delay={staggerDelay}
-                            className="flex h-full w-full max-w-sm"
-                        >
-                            <Card className="flex h-full w-full flex-col border pt-0 lg:grayscale lg:hover:grayscale-0 rounded-none transition-all duration-300 hover:shadow-lg dark:hover:shadow-gray-400">
-                                <div className="absolute inset-0 z-30 aspect-video" />
+                        <Card className="flex h-full w-full max-w-[400px] min-w-[300px] flex-col border pt-0 lg:grayscale lg:hover:grayscale-0 rounded-none transition-all duration-300 hover:shadow-lg dark:hover:shadow-gray-400">
+                            <div className="absolute inset-0 z-30 aspect-video" />
 
-                                <img
-                                    src={project.image}
-                                    alt={project.title}
-                                    className="relative z-20 aspect-video w-full object-cover brightness-60 dark:brightness-40"
-                                />
+                            <img
+                                src={project.image}
+                                alt={project.title}
+                                className="relative z-20 aspect-video w-full object-cover brightness-60 dark:brightness-40"
+                            />
 
-                                <CardHeader className="flex flex-col gap-4 p-4">
-                                    <CardTitle>{project.title}</CardTitle>
+                            <CardHeader className="flex flex-col gap-4 p-4">
+                                <CardTitle>{project.title}</CardTitle>
 
-                                    <CardDescription>
-                                        <p className="text-sm">
-                                            {project.description}
-                                        </p>
-                                    </CardDescription>
-                                </CardHeader>
+                                <CardDescription>
+                                    <p className="text-sm">
+                                        {project.description}
+                                    </p>
+                                </CardDescription>
+                            </CardHeader>
 
-                                <CardFooter className="mt-auto flex flex-col lg:flex-row gap-4 p-4">
-                                    {project.links.map((link) => {
-                                        const Icon = link.icon;
+                            <CardFooter className="mt-auto flex flex-col lg:flex-row gap-4 p-4">
+                                {project.links.map((link) => {
+                                    const Icon = link.icon;
 
-                                        return (
-                                            <Button
-                                                key={link.label}
-                                                className="w-full border"
-                                                asChild
+                                    return (
+                                        <Button
+                                            key={link.label}
+                                            className="w-full border"
+                                            asChild
+                                        >
+                                            <a
+                                                href={link.href}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
                                             >
-                                                <a
-                                                    href={link.href}
-                                                    target="_blank"
-                                                    rel="noopener noreferrer"
-                                                >
-                                                    <Icon className="size-4 mr-2" />
-                                                    {link.label}
-                                                </a>
-                                            </Button>
-                                        );
-                                    })}
-                                </CardFooter>
-                            </Card>
-                        </AnimatedSection>
+                                                <Icon className="size-4 mr-2" />
+                                                {link.label}
+                                            </a>
+                                        </Button>
+                                    );
+                                })}
+                            </CardFooter>
+                        </Card>
                     );
                 })}
             </div>

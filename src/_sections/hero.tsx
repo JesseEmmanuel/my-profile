@@ -191,20 +191,18 @@ export default function Hero() {
       <div className="max-w-[1000px] w-full h-screen mx-auto items-center text-center flex flex-col justify-center sm:pt-4 hero-section relative z-10">
 
         {/* Floating in from the top */}
-        <AnimatedSection direction="down" delay={0.1}>
-          <IconCloud images={images} />
-        </AnimatedSection>
+        <IconCloud images={images} />
 
         {/* Sliding in from the left */}
-        <AnimatedSection direction="left" delay={0.3}>
+        <div>
           <p className="text-[#00df9a] font-bold p-2">FULL STACK WEB DEVELOPER</p>
           <h1 className="md:text-5xl sm:text-4xl text-2xl text-black font-bold my-2 dark:text-white">
             Hi, I'm Jesse.
           </h1>
-        </AnimatedSection>
+        </div>
 
         {/* Sliding in from the right */}
-        <AnimatedSection direction="right" delay={0.5}>
+        <div>
           <p className="md:text-5xl sm:text-4xl text-xl font-bold py-4 text-[#00df9a]">
             <ReactTyped
               strings={["Code", "Learn", "Grow"]}
@@ -216,7 +214,7 @@ export default function Hero() {
           <h2 className="text-sm md:text-lg mt-3 text-black mx-8 dark:text-white">
             I specialize in building scalable full-stack applications and robust APIs across the JavaScript, PHP, and Python ecosystems. I'm a continuous learner, always eager to expand my expertise across all areas of software development.
           </h2>
-        </AnimatedSection>
+        </div>
 
         {/* Floating up from the bottom */}
         <div
@@ -226,9 +224,7 @@ export default function Hero() {
               : ""
           }
         >
-          <AnimatedSection
-            direction="up"
-            delay={0.7}
+          <div
           >
             <TooltipProvider>
               <Dock direction="middle" className="dark:border-white rounded-none">
@@ -269,7 +265,7 @@ export default function Hero() {
                 </DockIcon>
               </Dock>
             </TooltipProvider>
-          </AnimatedSection>
+          </div>
         </div>
 
       </div>

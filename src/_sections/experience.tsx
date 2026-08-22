@@ -1,6 +1,5 @@
 "use client";
 
-import AnimatedSection from "../components/animated-section";
 import {
   ArcTimeline,
   type ArcTimelineItem,
@@ -11,31 +10,29 @@ export default function Experience() {
     <div className="flex flex-col gap-4 py-20 overflow-hidden">
 
       {/* Header sliding down */}
-      <AnimatedSection direction="down" className="flex flex-col items-center px-4">
+      <div className="flex flex-col items-center px-4">
         <h2 className="text-2xl sm:text-4xl font-bold text-foreground mb-4 text-center dark:text-white">
           Career Milestones
         </h2>
         <p className="text-sm md:text-lg text-muted-foreground max-w-2xl text-center mb-8 dark:text-gray-300">
           A timeline of my professional journey, roles, and the key experiences that have shaped my career as a developer.
         </p>
-      </AnimatedSection>
+      </div>
 
       {/* The entire timeline floating up smoothly */}
-      <AnimatedSection direction="up" delay={0.2}>
-        <ArcTimeline
-          data={TIMELINE}
-          defaultActiveStep={{
-            time: "September 2025 - July 2026",
-            stepIndex: 0,
-          }}
-          arcConfig={{
-            circleWidth: 4500,
-            angleBetweenMinorSteps: 0.4,
-            lineCountFillBetweenSteps: 8,
-            boundaryPlaceholderLinesCount: 50,
-          }}
-        />
-      </AnimatedSection>
+      <ArcTimeline
+        data={TIMELINE}
+        defaultActiveStep={{
+          time: "September 2025 - July 2026",
+          stepIndex: 0,
+        }}
+        arcConfig={{
+          circleWidth: 4500,
+          angleBetweenMinorSteps: 0.4,
+          lineCountFillBetweenSteps: 8,
+          boundaryPlaceholderLinesCount: 50,
+        }}
+      />
 
     </div>
   );
