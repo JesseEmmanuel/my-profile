@@ -43,7 +43,7 @@ export default function Skill() {
                   delay={0.2} // Same delay ensures they move synchronously
                 >
                   <Card
-                    className="flex flex-col justify-between h-full hover:shadow-lg dark:shadow-gray-400 transition-all duration-300 hover:-translate-y-1 w-[400px] border-2 border-[#101A36] dark:border-white rounded-none"
+                    className="flex flex-col justify-between h-full hover:shadow-lg dark:shadow-gray-400 transition-all duration-300 hover:-translate-y-1 w-full max-w-[400px] min-w-[300px] border-2 border-[#101A36] dark:border-white rounded-none"
                   >
                     <CardHeader className="text-center pb-4">
                       <div
